@@ -1,15 +1,15 @@
-# maskrcnn_inference_with_workers
+# Webapp inference computer vision maskrcnn model asynchronously using workers
 
 
 # I. Install
 
-git clone 
+git clone https://github.com/BenoitBarbereau/maskrcnn_inference_with_workers.git
 
 
 From my google drive download weights and mrcnn model 
 https://drive.google.com/drive/folders/1E9O_j9b4ph7DpEUBI7DfQUcGVwyaVIWP?usp=sharing
 
-Copy/paste the mask_rcnn_coco.h5 files into .app/utils/maskrcnn
+Copy/paste the mask_rcnn_coco.h5 files into ./app/utils/maskrcnn
 
 # II. Webapp inference 
 
@@ -65,3 +65,14 @@ Select a folder containing images and maskrnn will be running with workers on th
 
 just be patient
 
+
+#III. Stack
+
+### back end
+flask
+redis
+celery
+
+### AI
+tenforflow-Keras
+opencv
