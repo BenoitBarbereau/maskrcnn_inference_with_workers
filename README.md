@@ -1,7 +1,7 @@
 # Webapp inference computer vision maskrcnn model asynchronously using workers
 
 # Abstract
-This is a flask webapplication. The interface on the browser is used to send a bunch of images and display inference of maskrcnn as a result.
+This is a flask webapplication. The interface on the browser is used to send a bunch of images and display inferences of maskrcnn as a result.
 
 The backend use python (flask, celery, tensorflow-keras, opencv) and redis for queuing tasks.
 
