@@ -61,7 +61,7 @@ class ModelInference():
         scores = r['scores']
         names = self.config.CLASS_NAMES
         n_instances = boxes.shape[0]
-        if not n_instances:
+        if n_instances:
             response = {
                 "code": 200,
                 "data": r,
