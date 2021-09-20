@@ -47,7 +47,7 @@ source env/bin/activate
 
 flower -A app.celery --port=5555
 
-reach the webapp on  http://localhost:5555/
+reach flower webapp on  http://localhost:5555/
 
 ## STEP 5
 
