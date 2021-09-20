@@ -50,23 +50,21 @@ pip install -r requirements.txt
 
 # II. Webapp inference 
 
-## STEP 1
-
 Select folders containing images ( ./Images_test ) 
 
-## STEP 2 
+### step 1 
 
 Install and launch REDIS on a terminal
 
  ./run-redis.sh
 
-## STEP 3 
+### step 2
 
 Run celery on an other terminal side by side with redis
 
 env/bin/celery worker -A app.celery --loglevel=info --pool gevent --concurrency=1
 
-## STEP 4
+### step 3 
 
 run flower to monitor worker queue on your favorite browser
 
@@ -76,7 +74,7 @@ flower -A app.celery --port=5555
 
 reach flower webapp on  http://localhost:5555/
 
-## STEP 5
+### step 4
 
 then run the application on an other terminal
 
@@ -85,11 +83,11 @@ source env/bin/activate
 python run.py
 
 
-## STEP 6
+### step 5
 
 On your favorite web browser reach 127.0.0.1:5001
 
-Select a folder containing images and maskrnn will be running with workers on the background making inference in a row without freezing the webapp
+Select a folder containing images  ( ./Images_test )  and maskrnn will be running inferences in a row with workers on the background without freezing the webapp
 
 just be patient
 
