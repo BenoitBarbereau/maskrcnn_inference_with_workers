@@ -3,6 +3,8 @@
 
 # I. Install
 
+## STEP 1
+
 git clone https://github.com/BenoitBarbereau/maskrcnn_inference_with_workers.git
 
 
@@ -10,10 +12,6 @@ From my google drive download weights and mrcnn model
 https://drive.google.com/drive/folders/1E9O_j9b4ph7DpEUBI7DfQUcGVwyaVIWP?usp=sharing
 
 Copy/paste the mask_rcnn_coco.h5 files into ./app/utils/maskrcnn
-
-# II. Webapp inference 
-
-## STEP 1
 
 Set up a virtual environment and install dependencies
 
@@ -24,6 +22,9 @@ source ./env/bin/activate
 pip install --upgrade pip
 
 pip install -r requirements.txt
+
+
+# II. Webapp inference 
 
 
 ## STEP 2 
