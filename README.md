@@ -3,7 +3,7 @@
 # Abstract
 This is a flask webapplication. The interface on the browser is used to send a bunch of images and display inferences of maskrcnn as a result.
 
-The backend use python (flask, celery, tensorflow-keras, opencv) and redis for queuing tasks.
+The backend is built with python (flask, celery, tensorflow-keras, opencv) and redis for queuing tasks.
 
 here the result: 
 
