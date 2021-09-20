@@ -5,7 +5,7 @@ This is a flask webapplication. The interface on the browser is used to send a b
 
 The backend use python (flask, celery, tensorflow-keras, opencv) and redis for queuing tasks.
 
-here the result: [](result.png)
+here the result: [](./doc/result.png)
 
 
 
