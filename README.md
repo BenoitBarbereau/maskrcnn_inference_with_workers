@@ -11,9 +11,23 @@ here the result:
 ![image info](./doc/result.png)
 
 
-# I. Install
 
-## STEP 1
+The maskrcnn coco is pre trained to recognize 81 classes :
+
+['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 
+'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 
+'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 
+'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 
+'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 
+'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 
+'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 
+'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 
+'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 
+'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 
+'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 
+'teddy bear', 'hair drier', 'toothbrush']
+
+# I. Install
 
 git clone https://github.com/BenoitBarbereau/maskrcnn_inference_with_workers.git
 
@@ -36,6 +50,9 @@ pip install -r requirements.txt
 
 # II. Webapp inference 
 
+## STEP 1
+
+Select folders containing images ( ./Images_test ) 
 
 ## STEP 2 
 
