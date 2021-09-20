@@ -26,7 +26,7 @@ class InferenceConfig(Config):
                     'teddy bear', 'hair drier', 'toothbrush']
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
-    NUM_CLASSES = 1 + len(CLASS_NAMES)
+    NUM_CLASSES = len(CLASS_NAMES)
     DETECTION_NMS_THRESHOLD = 0.5
     DETECTION_MIN_CONFIDENCE = 0.95
     OUTPUT = os.path.join(ROOT_DIR , 'app/static/output')
