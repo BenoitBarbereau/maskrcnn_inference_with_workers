@@ -4,7 +4,7 @@
 
 ## STEP 1
 
-Set up a virtual environment and install dependancies
+Set up a virtual environment and install dependencies
 
 python3 -m venv --system-site-packages ./env
 
@@ -29,11 +29,13 @@ env/bin/celery worker -A app.celery --loglevel=info --pool gevent --concurrency=
 
 ## STEP 4
 
-run flower to monitor all above on an other terminal too
+run flower to monitor worker queue on your favorite browser
 
 source env/bin/activate
 
 flower -A app.celery --port=5555
+
+reach the webapp on  http://localhost:5555/
 
 ## STEP 5
 
@@ -45,8 +47,10 @@ python run.py
 
 
 ## STEP 6
-Go on your favorite web browser 127.0.0.1:5001
 
-Select a folder containing images and maskrnn will be running on the background making inference in a row without freezing the app
+On your favorite web browser reach 127.0.0.1:5001
+
+Select a folder containing images and maskrnn will be running with workers on the background making inference in a row without freezing the webapp
 
 just be patient
+
