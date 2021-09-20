@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Flask images</title>
+    <style>
+        .progress {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Veuillez importer une image version 1</h1>
+    <form method="POST" enctype=multipart/form-data>
+        <input type="file" name="image" accept="image/*" >
+        <button onclick="start_long_task();">Start Long Calculation</button><br><br>
+    </form>
+
+
+    <h1>Veuillez importer une image version 2</h1>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <label for="file">Select a file</label>
+            <input type="file" required webkitdirectory directory multiple id="photoFileFolder" name="photoFileFolder">
+        </fieldset>
+        <fieldset>
+            <button onclick="start_long_task();"  type="button">Upload</button>
+        </fieldset>
+    </form>
+
+    <div id="progress"></div>
+    <div id="imgResult"></div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nanobar/0.2.1/nanobar.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+                $('#upload-file-btn').click(function () {
+                    var form_data = new FormData($('#upload-file')[0]);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/foldertask',
+                        data: form_data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function (data) {
+                            console.log('Success!');
+                        },
+                    });
+                });
+            });
+
+        function start_long_task() {
+            // send ajax POST request to start background job
+            var form_data = new FormData($('#upload-file')[0]);
+            $.ajax({
+                type: 'POST',
+                url: '/foldertask',
+                data: form_data,
+                contentType: false,
+                cache: false,
+                processData: false,
+                async: false,
+                success: function (data, status, request) {
+                    status_url = request.getResponseHeader('Location');
+                    task_url = request.getResponseHeader('task_id');
+                    status_url_pik = request.getResponseHeader('status_url');
+
+                    // update_progress(status_url, nanobar, div[0]);
+
+                    var task_url_array = task_url.split(',')
+                    // task_url_array.forEach((id) => )
+                    console.log(task_url)
+                    console.log(status_url_pik)
+                    task_url_array.forEach((id) => {
+                        id = id.trim()
+                        // add task status elements
+                        var div = $('<div id="progress-'+ id +'" class="progress"><div></div><div>0%</div><div>...</div><div>&nbsp;</div></div><hr>');
+                        $('#progress').append(div);
+
+                        // create a progress bar
+                        var nanobar = new Nanobar({
+                            bg: '#44f',
+                            target: div[0].childNodes[0]
+                        });
+
+                        var current_url = 'status/'+id
+                        console.log(current_url)
+
+                        update_progress(current_url, nanobar, div[0])
+                    })
+                },
+                error: function () {
+                    alert('Unexpected error');
+                }
+            });
+        }
+        function update_progress(status_url, nanobar, status_div) {
+            // send GET request to status URL
+            $.getJSON(status_url, function (data) {
+                // update UI
+                percent = parseInt(data['current'] * 100 / data['total']);
+                nanobar.go(percent);
+                $(status_div.childNodes[1]).text(percent + '%');
+                $(status_div.childNodes[2]).text(data['status']);
+                if (data['state'] != 'PENDING' && data['state'] != 'PROGRESS') {
+                    if ('data_inference' in data) {
+                        // show result
+                        // $(status_div.childNodes[3]).text('Result: ' + data['result']);
+                        $("<img width='250px' src=" +  data['image'] + ">").appendTo(status_div);
+                        $(status_div.childNodes[3]).text(data['data_inference']);
+                    }
+                    else {
+                        // something unexpected happened
+                        $(status_div.childNodes[3]).text('Result: ' + data['state']);
+                    }
+                }
+                else {
+                    // rerun in 2 seconds
+                    setTimeout(function () {
+                        update_progress(status_url, nanobar, status_div);
+                    }, 2000);
+                }
+            });
+        }
+        $(function () {
+            $('#start-bg-job').click(start_long_task);
+        });
+    </script>
+</body>
+
+</html>

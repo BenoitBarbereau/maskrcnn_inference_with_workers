@@ -1,0 +1,17 @@
+
+
+REDIS
+ ./run-redis.sh 
+
+
+CELERY
+env/bin/celery worker -A app.celery --loglevel=info --pool gevent --concurrency=1
+
+
+FLOWER
+source env/bin/activate
+flower -A app.celery --port=5555
+
+FLASK
+source env/bin/activate
+python run.py

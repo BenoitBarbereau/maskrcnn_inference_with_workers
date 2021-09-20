@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Flask images</title>
+    </head>
+    <body>
+        <h1>Veuillez importer un dossier d'image</h1>
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_folder') }}">
+                <input type="file" required webkitdirectory directory multiple id="photoFileFolder" name="photoFileFolder">
+                <button type="submit">Charger l'image</button>
+            </form>
+            {% if data %}
+                {% for photo in data %}
+                <h3>L'image chargée est :</h3>
+                <p>Version sans sauvegarde : <img src="{{ photo }}" alt="image_wo_upload"></p>
+                {% endfor %}
+            {% endif %}
+    </body>
+</html>
