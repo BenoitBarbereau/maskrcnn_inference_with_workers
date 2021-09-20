@@ -32,8 +32,8 @@ The maskrcnn coco is pre trained to recognize 81 classes :
 git clone https://github.com/BenoitBarbereau/maskrcnn_inference_with_workers.git
 
 
-From my google drive download weights and mrcnn model 
-https://drive.google.com/drive/folders/1E9O_j9b4ph7DpEUBI7DfQUcGVwyaVIWP?usp=sharing
+From matterport github download weights and mrcnn coco model 
+https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5
 
 Copy/paste the mask_rcnn_coco.h5 files into ./app/utils/maskrcnn
 
