@@ -66,7 +66,7 @@ Select a folder containing images and maskrnn will be running with workers on th
 just be patient
 
 
-#III. Stack
+# III. Stack
 
 ### back end
 flask
