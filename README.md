@@ -38,7 +38,7 @@ python run.py
 
 
 ## STEP 6
-Go on your favorite web browser 127.0.0.1:5555
+Go on your favorite web browser 127.0.0.1:5001
 
 Select a folder containing images and maskrnn will be running on the background making inference in a row without freezing the app
 
