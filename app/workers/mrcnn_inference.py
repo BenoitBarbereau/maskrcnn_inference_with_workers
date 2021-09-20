@@ -8,7 +8,7 @@ from flask import current_app
 from mrcnn.model import MaskRCNN
 import mrcnn.model as modellib
 from app.utils.config_maskrcnn import config as InferenceConfig  # watch out AI config
-from app.utils.engine import Foamtastic
+from app.utils.engine import ModelInference
 from keras import backend as K
 import tensorflow as tf
 
@@ -57,7 +57,7 @@ def image_cv_to_str(image_cv):
 
 
 @celery.task(bind=True)
-def task_foamtastic(self, base64_string):
+def task_mrcnn(self, base64_string):
     print("Inference")
     self.update_state(state='PROGRESS',
                       meta={'current': 33, 'total': 100,
@@ -74,8 +74,8 @@ def task_foamtastic(self, base64_string):
         with GRAPH.as_default():
             logger.info(
                 'Inference for worker: inference in progress... ')
-            foamtastic = Foamtastic(InferenceConfig, "worker", model, GRAPH)
-            result = foamtastic.run_inference(image)
+            mrcnn = ModelInference(InferenceConfig, "worker", model, GRAPH)
+            result = mrcnn.run_inference(image)
             logger.info(f'model for worker: inference done, code --> {result["code"]}')
         K.clear_session()
         if result["code"] == 200: 

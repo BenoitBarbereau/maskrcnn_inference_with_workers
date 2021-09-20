@@ -11,11 +11,22 @@ class InferenceConfig(Config):
     NAME = "foamtastic"
     ROOT_DIR = os.path.abspath(".")
     COCO_MODEL_PATH = os.path.join(ROOT_DIR , 'app/utils/maskrcnn')
-    MODEL_DIR = os.path.join( COCO_MODEL_PATH, "model_foamtastic.h5")
-    CLASS_NAMES = ['bg','tube', 'cork', 'foam']
+    MODEL_DIR = os.path.join( COCO_MODEL_PATH, "mask_rcnn_coco.h5")
+    CLASS_NAMES = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 
+                    'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 
+                    'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 
+                    'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 
+                    'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 
+                    'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 
+                    'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 
+                    'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 
+                    'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 
+                    'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 
+                    'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 
+                    'teddy bear', 'hair drier', 'toothbrush']
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
-    NUM_CLASSES = 1 + 3
+    NUM_CLASSES = 1 + len(CLASS_NAMES)
     DETECTION_NMS_THRESHOLD = 0.5
     DETECTION_MIN_CONFIDENCE = 0.95
     OUTPUT = os.path.join(ROOT_DIR , 'app/static/output')

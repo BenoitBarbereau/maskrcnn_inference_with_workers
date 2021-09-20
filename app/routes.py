@@ -11,7 +11,7 @@ import base64
 import io
 from PIL import Image
 import numpy as np
-from app.workers.workers_foamtastic import task_foamtastic
+from app.workers.mrcnn_inference import task_mrcnn
 
 app = current_app
 
@@ -33,7 +33,7 @@ def upload_folder():
     for img in data_photos:
         try:
             base64_string = base64.b64encode(img.read()).decode('ascii')
-            task = task_foamtastic.delay(base64_string)
+            task = task_mrcnn.delay(base64_string)
             lst.append(task.id.strip())
         except Exception as e:
             return e
@@ -42,7 +42,7 @@ def upload_folder():
 
 @app.route('/status/<task_id>')
 def taskstatus(task_id):
-    task = task_foamtastic.AsyncResult(task_id)
+    task = task_mrcnn.AsyncResult(task_id)
     print(task.state)
     if task.state == 'PENDING':
         # job did not start yet

@@ -6,7 +6,7 @@ from celery import Celery
 
 def create_app():
     print("create app")
-    print("WELCOME it's FOAMTASTIC")
+    print("Webapp is running !!")
     # Flask stuff
     app = Flask(__name__, template_folder='templates',
                 static_folder='static', instance_relative_config=True)
