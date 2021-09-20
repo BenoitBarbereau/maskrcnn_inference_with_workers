@@ -6,7 +6,7 @@
 
 Set up a virtual environment and install dependancies
 
-python3 -m env --system-site-packages ./venv
+python3 -m env --system-site-packages ./env
 
 source ./env/bin/activate
 
