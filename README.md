@@ -50,7 +50,6 @@ pip install -r requirements.txt
 
 # II. Webapp inference 
 
-Select folders containing images ( ./Images_test ) 
 
 ### step 1 
 
