@@ -1,6 +1,6 @@
 # Webapp multithreading maskrcnn inference simultaneously
 
-# In a gist
+# The gist
 This is a flask webapplication. The interface on the browser is used to send a bunch of images and display inferences of maskrcnn as a result.
 
 The backend is built with python (flask, celery, tensorflow-keras, opencv) and redis for queuing tasks.
