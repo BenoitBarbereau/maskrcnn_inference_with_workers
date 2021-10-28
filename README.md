@@ -28,9 +28,9 @@ The maskrcnn coco is pre trained to recognize 81 classes :
 'teddy bear', 'hair drier', 'toothbrush']
 
 # I. Install
-
+``` 
 git clone https://github.com/BenoitBarbereau/maskrcnn_inference_with_workers.git
-
+```
 
 From matterport github download weights and mrcnn coco model 
 https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5
@@ -38,15 +38,18 @@ https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5
 Copy/paste the mask_rcnn_coco.h5 files into ./app/utils/maskrcnn
 
 Set up a virtual environment and install dependencies
-
+```
 python3 -m venv --system-site-packages ./env
-
+```
+```
 source ./env/bin/activate
-
+```
+```
 pip install --upgrade pip
-
+```
+```
 pip install -r requirements.txt
-
+```
 
 # II. Webapp inference 
 
