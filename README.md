@@ -57,33 +57,35 @@ pip install -r requirements.txt
 ### step 1 
 
 Install and launch REDIS on a terminal
-
+```
  ./run-redis.sh
-
+```
 ### step 2
 
 Run celery on an other terminal side by side with redis
-
+```
 env/bin/celery worker -A app.celery --loglevel=info --pool gevent --concurrency=1
-
+```
 ### step 3 
 
 run flower to monitor worker queue on your favorite browser
-
+```
 source env/bin/activate
-
+```
+```
 flower -A app.celery --port=5555
-
+```
 reach flower webapp on  http://localhost:5555/
 
 ### step 4
 
 then run the application on an other terminal
-
+```
 source env/bin/activate
-
+```
+```
 python run.py
-
+```
 
 ### step 5
 
