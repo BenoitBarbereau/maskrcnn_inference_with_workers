@@ -44,8 +44,13 @@ cd maskrcnn_inference_with_workers
 ```
 python3 -m venv --system-site-packages ./env
 ```
+Linux:
 ```
 source ./env/bin/activate
+```
+Windows:
+```
+.\env\Scripts\activate
 ```
 ```
 pip install --upgrade pip
