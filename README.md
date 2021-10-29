@@ -39,6 +39,9 @@ Copy/paste the mask_rcnn_coco.h5 files into ./app/utils/maskrcnn
 
 Set up a virtual environment and install dependencies
 ```
+cd maskrcnn_inference_with_workers
+```
+```
 python3 -m venv --system-site-packages ./env
 ```
 ```
